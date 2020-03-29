@@ -43,7 +43,8 @@ $neto=$suma+$suma_venta-$suma_egreso;
 			  <div  role="document">
 				<div class="modal-content">
 				  <div class="modal-header">
-					<a href="./FPDF/reportes/reporte_diario_pdf.php" class="btn btn-success">Generar PDF</a>
+					<a href="./FPDF/reportes/reporte_diario_pdf.php" class="btn btn-warning">Generar PDF de guias</a>
+					<a href="./FPDF/reportes/reporte_diario_ventas_pdf.php" class="btn btn-success">Generar PDF  de ventas</a>
 					<div>
 						<h4>Total pagos por servicio: <?php echo "S/. ".$suma;?></h4>
 						<h4>Total pagos en ventas: <?php echo "S/. ".$suma_venta;?></h4>

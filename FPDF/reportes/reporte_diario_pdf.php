@@ -5,36 +5,19 @@ page_require_level(3);
 
 $fecha_hoy=date('Y-m-d');
 //suma de pagos de guias
-$sql="SELECT * FROM pagos_registro where fecha_pago like '$fecha_hoy%'";
-$data=$db->query($sql);
-$suma=0;
-foreach($data as $datos){
-	$suma += (double)$datos['pagado'];
-}
-//suma de pagos de ventas
-$sql="SELECT * FROM sales where date like '$fecha_hoy%'";
-$data=$db->query($sql);
-$suma_venta=0;
-foreach ($data as $ventas) {
-	$suma_venta += (double)$ventas['price'];
-}
-//suma de egresos
-$sql="SELECT * FROM egreso where fecha like '$fecha_hoy%'";
-$data=$db->query($sql);
-$suma_egreso=0;
-foreach ($data as $egreso) {
-	$suma_egreso += (double)$egreso['monto'];
-}
-$neto=$suma+$suma_venta-$suma_egreso;
+
 
 
 class myPDF extends FPDF{
 
 	public $db;
+	public $suma;
+	public $ruta_logo;
 	
 
 	function header(){
-		$this->Image('../../libs/images/mr robot logo1.png',10,0,50,50);
+		$ruta_logo=$_SESSION['ruta_imagen'];
+		$this->Image('../../uploads/empresa/'.$ruta_logo,10,10,50,30);
 		$this->SetFont('Arial','B',14);
 		$this->Cell(276,5,'REPORTE DIARIO GENERAL',0,0,'C');
 		$this->Ln();
@@ -53,13 +36,21 @@ class myPDF extends FPDF{
 	}
 
 	function headerTableGuias (){
- 	$fecha_hoy=date('Y-m-d');
+		$db=new MySqli_DB();
+ $fecha_hoy=date('Y-m-d');
+		$sql="SELECT * FROM pagos_registro where fecha_pago like '$fecha_hoy%'";
+$data=$db->query($sql);
+$suma=0;
+foreach($data as $datos){
+	$suma += (double)$datos['pagado'];
+}
   $this->SetFillColor(141,230,80);
     $this->SetTextColor(0);
     $this->SetDrawColor(0,0,0);
     $this->SetLineWidth(.3);
     	$this->SetFont('Times','B',12);
     	$this->MultiCell(80,10,'REPORTE DE GUIAS DEL '.$fecha_hoy);
+    	$this->MultiCell(80,10,'Total : S/. '.$suma);
     	
     	$this->cell(20,10,'Nro',1,0,'C',true);
     	
