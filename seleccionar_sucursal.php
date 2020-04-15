@@ -10,13 +10,14 @@ $page_title="Inicio de sesion";
 
 <div class="container-fluid" >
 <div class="login-page">
-	
-	<div class="login-page2">
+	<div class="login-box">
+    <img src="./libs/images/logo_login.png" class="avatar">
+	<?php echo display_msg($msg); ?>
     <div class="text-center" >
        <h1>Elegir sucursal de trabajo</h1>
        <p>Seleccione una opción </p>
      </div>
-     <?php echo display_msg($msg); ?>
+     
       <form method="post" action="auth2.php" class="clearfix">
         <div class="form-group">
                     <select class="form-control" name="sucursal" required>
@@ -30,9 +31,10 @@ $page_title="Inicio de sesion";
         <div class="form-group">
                 <button type="submit" class="btn btn-info  pull-right">Aceptar</button>
         </div>
-		  </div>
+		  
     </form>
 
+</div>
 </div>
 
 	</div>

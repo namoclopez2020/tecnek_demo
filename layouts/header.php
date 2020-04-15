@@ -44,6 +44,7 @@
  <!--estilos de la aplicacion -->          
 <link rel="stylesheet" href="libs/css/main.css" />
 <link href="./libs/css/bootstrap-annual.css" rel="stylesheet">  
+<link rel="stylesheet" type="text/css" href="./libs/css/style.css">
     
 
     

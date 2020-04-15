@@ -6,16 +6,16 @@ body {
 
   font-size: 14px !important;
  background-image: url("../images/1.jpg") ;
-/* background-color: #C8C8C8;*/
+/*background-color: #C8C8C8;*/
 
-  background-position: center;
+ background-position: center;
   background-repeat: repeat;
   background-size: cover;
 	-webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 	background-attachment: fixed;
-	
+
 }
 .control-login {
   color: #f7901e;
